@@ -3,7 +3,7 @@ require 'open-uri'
 class GeocodingController < ApplicationController
   def street_to_coords
     @street_address = params.fetch("user_street_address")
-    @sanitized_street_address = URI.encode(@street_address)
+    sanitized_street_address = URI.encode(@street_address)
 
     # ==========================================================================
     # Your code goes below.
@@ -12,7 +12,7 @@ class GeocodingController < ApplicationController
     #   characters removed, is in the string sanitized_street_address.
     # ==========================================================================
     
-    url_google_api="https://maps.googleapis.com/maps/api/geocode/json?address=#{@sanitized_street_address}&key=AIzaSyA5qwIlcKjijP_Ptmv46mk4cCjuWhSzS78"
+    url_google_api="https://maps.googleapis.com/maps/api/geocode/json?address=#{sanitized_street_address}&key=AIzaSyA5qwIlcKjijP_Ptmv46mk4cCjuWhSzS78"
     
     parsed_data = JSON.parse(open(url_google_api).read)
     
