@@ -53,7 +53,7 @@ class StatsController < ApplicationController
           
         else
           
-          median = @sorted_numbers.at(even_test.round(0)-1)
+          median = @sorted_numbers.at(even_test.round(0))
           
         end
     

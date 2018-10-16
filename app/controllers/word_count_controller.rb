@@ -21,7 +21,7 @@ class WordCountController < ApplicationController
         
       else
         
-        @occurrences = @text.gsub(/s+/, "").scan(@special_word.downcase).count
+        @occurrences = @text.gsub(/s+/, "").downcase.scan(@special_word.gsub(/s+/, "").downcase).count
         
       end
 
